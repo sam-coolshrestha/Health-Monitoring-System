@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Health Risk Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h2>Health Risk Prediction System</h2>
+
+<form method="POST">
+    <input type="number" step="any" name="respiratory_rate" placeholder="Respiratory Rate" required><br>
+    <input type="number" step="any" name="oxygen_saturation" placeholder="Oxygen Saturation" required><br>
+    <input type="number" name="o2_scale" placeholder="O2 Scale (1 or 2)" required><br>
+    <input type="number" step="any" name="systolic_bp" placeholder="Systolic BP" required><br>
+    <input type="number" step="any" name="heart_rate" placeholder="Heart Rate" required><br>
+    <input type="number" step="any" name="temperature" placeholder="Temperature" required><br>
+    <input type="number" name="consciousness" placeholder="Consciousness (0–3)" required><br>
+    <input type="number" name="on_oxygen" placeholder="On Oxygen (0/1)" required><br>
+
+    <button type="submit">Predict Risk</button>
+</form>
+
+{% if prediction %}
+    <h3>Predicted Health Risk: {{ prediction }}</h3>
+{% endif %}
+
+</body>
+</html>
